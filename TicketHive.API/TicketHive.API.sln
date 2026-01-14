@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketHive.API", "TicketHive.API.csproj", "{E8DD9F8C-2792-49F1-8CF7-F8109121708F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketHive.Domain", "..\TicketHive.Domain\TicketHive.Domain.csproj", "{1EA53BC1-3BCE-4ABC-9615-EF4F63CBFA63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketHive.Application", "..\TicketHive.Application\TicketHive.Application.csproj", "{BBC3BD8C-8D74-4019-A5BA-4BD4C0F4198F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketHive.Infrastructure", "..\TicketHive.Infrastructure\TicketHive.Infrastructure.csproj", "{08187887-B8B0-4FC3-A626-B674FB5B486B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8DD9F8C-2792-49F1-8CF7-F8109121708F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8DD9F8C-2792-49F1-8CF7-F8109121708F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8DD9F8C-2792-49F1-8CF7-F8109121708F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8DD9F8C-2792-49F1-8CF7-F8109121708F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA53BC1-3BCE-4ABC-9615-EF4F63CBFA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA53BC1-3BCE-4ABC-9615-EF4F63CBFA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA53BC1-3BCE-4ABC-9615-EF4F63CBFA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA53BC1-3BCE-4ABC-9615-EF4F63CBFA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC3BD8C-8D74-4019-A5BA-4BD4C0F4198F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC3BD8C-8D74-4019-A5BA-4BD4C0F4198F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC3BD8C-8D74-4019-A5BA-4BD4C0F4198F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC3BD8C-8D74-4019-A5BA-4BD4C0F4198F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08187887-B8B0-4FC3-A626-B674FB5B486B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08187887-B8B0-4FC3-A626-B674FB5B486B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08187887-B8B0-4FC3-A626-B674FB5B486B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08187887-B8B0-4FC3-A626-B674FB5B486B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37D5A226-A93A-4F5A-B3BF-BD46D9F72B81}
+	EndGlobalSection
+EndGlobal
