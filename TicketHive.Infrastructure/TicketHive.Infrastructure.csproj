@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TicketHive.Application\TicketHive.Application.csproj" />
     <ProjectReference Include="..\TicketHive.Domain\TicketHive.Domain.csproj" />
   </ItemGroup>
 
