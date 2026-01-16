@@ -19,7 +19,6 @@ namespace TicketHive.Infrastructure.Data
         // Entities in database
         public DbSet<Event> Events { get; set; }
 
-
         // Seed initial data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

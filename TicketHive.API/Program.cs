@@ -1,4 +1,8 @@
+using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using TicketHive.Application.Behaviors;
+using TicketHive.Application.Features.Events.Commands.CreateEvent;
 using TicketHive.Application.Features.Events.Queries.GetEventsList;
 using TicketHive.Application.Mappings;
 using TicketHive.Infrastructure.Data;
@@ -13,19 +17,28 @@ namespace TicketHive.API
 
             // Add services to the container.
 
-            // Add PostgreSQL
+            // --- Database Configuration ---
+            // Configures Entity Framework Core to connect to the PostgreSQL instance.
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // Add MediatR
-            // This line tells MediatR: "Look inside the Application project to find all my Queries and Handlers"
+            // --- MediatR Registration ---
+            // Registers MediatR to scan the 'Application' assembly for all Command/Query handlers.
             builder.Services.AddMediatR(cfg => {
                 cfg.RegisterServicesFromAssembly(typeof(GetEventsListQuery).Assembly);
+
+                // Registers our custom Validation Behavior into the MediatR request pipeline.
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             });
 
-            // This scans the Application assembly for any classes that inherit from 'Profile'
+            // --- AutoMapper Registration ---
+            // Scans for 'Profile' classes to automate object-to-object mapping.
             // This works in v14 without any license key
             builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+            // --- FluentValidation Registration ---
+            // Scans for all 'AbstractValidator' classes in the Application project.
+            builder.Services.AddValidatorsFromAssembly(typeof(CreateEventCommand).Assembly);
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

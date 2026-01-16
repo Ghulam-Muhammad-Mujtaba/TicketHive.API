@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TicketHive.Application.DTOs;
+using TicketHive.Application.Features.Events.Commands.CreateEvent;
 using TicketHive.Domain.Entities;
 
 namespace TicketHive.Application.Mappings
@@ -11,8 +12,8 @@ namespace TicketHive.Application.Mappings
             // This tells AutoMapper: "You can convert an Event entity into an EventDto"
             CreateMap<Event, EventDto>();
 
-            // Conversion from end point request to Event entity
-            // CreateMap<EventDto, Event>().ReverseMap();
+            // For Commands (Command -> Entity)
+            CreateMap<CreateEventCommand, Event>();
         }
     }
 }
