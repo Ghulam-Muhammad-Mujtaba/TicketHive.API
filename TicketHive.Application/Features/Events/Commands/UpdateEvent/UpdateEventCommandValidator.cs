@@ -1,15 +1,18 @@
 ﻿using FluentValidation;
 
-namespace TicketHive.Application.Features.Events.Commands.CreateEvent
+namespace TicketHive.Application.Features.Events.Commands.UpdateEvent
 {
     /// <summary>
     /// Defines the business rules for creating an event.
     /// FluentValidation ensures data integrity before it reaches the Database.
     /// </summary>
-    public class CreateEventCommandValidator : AbstractValidator<CreateEventCommand>
+    public class UpdateEventCommandValidator : AbstractValidator<UpdateEventCommand>
     {
-        public CreateEventCommandValidator()
+        public UpdateEventCommandValidator()
         {
+            RuleFor(p => p.Id)
+                .NotEmpty().WithMessage("The Event ID is required for updates.");
+
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()

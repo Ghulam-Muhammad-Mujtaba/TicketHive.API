@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TicketHive.Application.DTOs;
 using TicketHive.Application.Features.Events.Commands.CreateEvent;
+using TicketHive.Application.Features.Events.Commands.DeleteEvent;
+using TicketHive.Application.Features.Events.Commands.UpdateEvent;
+using TicketHive.Application.Features.Events.Queries.GetEventDetail;
 using TicketHive.Application.Features.Events.Queries.GetEventsList;
 
 namespace TicketHive.API.Controllers
@@ -42,6 +45,29 @@ namespace TicketHive.API.Controllers
             // The controller sends the command into the MediatR pipeline without knowing how it's handled.
             var id = await _mediator.Send(createEventCommand);
             return Ok(id);
+        }
+
+        // GET: api/Events/{id} - Action to get event details by ID
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EventDto>> GetById(Guid id)
+        {
+            return Ok(await _mediator.Send(new GetEventDetailQuery(id)));
+        }
+
+        // PUT: api/events
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody] UpdateEventCommand updateEventCommand)
+        {
+            await _mediator.Send(updateEventCommand);
+            return NoContent(); // 204
+        }
+
+        // DELETE: api/events/{id}
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            await _mediator.Send(new DeleteEventCommand(id));
+            return NoContent(); // 204
         }
     }
 }

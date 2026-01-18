@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using TicketHive.Application.DTOs;
 using TicketHive.Application.Features.Events.Commands.CreateEvent;
+using TicketHive.Application.Features.Events.Commands.UpdateEvent;
 using TicketHive.Domain.Entities;
 
 namespace TicketHive.Application.Mappings
@@ -14,6 +15,9 @@ namespace TicketHive.Application.Mappings
 
             // For Commands (Command -> Entity)
             CreateMap<CreateEventCommand, Event>();
+
+            // Required For Update
+            CreateMap<UpdateEventCommand, Event>();
         }
     }
 }
